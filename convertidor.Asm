@@ -5,8 +5,21 @@ include 'c:/fasm/include/win32ax.inc'
 
 
 ; ********************     CONSTANTES     ********************
-ventana_1	= 1
-salir_btn	= 1000
+main			= 1
+id_input		= 1001
+id_btn_in_bi	= 1003
+id_btn_in_oc	= 1004
+id_btn_in_de	= 1005
+id_btn_in_he	= 1006
+id_bnt_out_bi	= 1008
+id_btn_out_oc	= 1009
+id_btn_out_de	= 1010
+id_btn_out_he	= 1011
+id_bnt_convert	= 1012
+id_out_bi		= 1019
+id_out_oc		= 1020
+id_out_de		= 1021
+id_out_he		= 1022
 
 
 ; ********************     CODIGO     ********************
@@ -15,14 +28,12 @@ section '.code' code readable executable
 inicio:
 	invoke GetModuleHandle,0
 	mov [Ist],eax
-	invoke DialogBoxParam,eax,ventana_1,0,DlgProc,0
+	invoke DialogBoxParam,eax,main,0,DlgProc,0
 fin:
 	invoke ExitProcess,0
 
 
-proc DlgProc,hWnd,uMsg,wParam,lParam
-	push edi esi ebx
-
+proc DlgProc uses edi esi ebx,hWnd,uMsg,wParam,lParam
 	mov eax,[uMsg]
 	cmp	eax,WM_COMMAND
 	je	jCOMMAND
@@ -42,14 +53,8 @@ jINITDIALOG:
 
 jCOMMAND:
 	mov eax,[wParam]
-	cmp	eax,salir_btn
-	je	salir
-	xor eax,eax
-	jmp finish
 
-salir:
-	invoke SendMessage,[hWnd],WM_CLOSE,0,0
-	mov eax,1
+	xor eax,eax
 	jmp finish
 
 jCLOSE:
@@ -57,7 +62,6 @@ jCLOSE:
 	mov eax,1
 
 finish:
-	pop ebx esi edi
 	ret
 endp
 

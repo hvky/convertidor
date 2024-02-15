@@ -1,10 +1,54 @@
-#define IDD_DLG1 1
-#define IDC_BTN1 1000
-IDD_DLG1 DIALOGEX 6,6,194,106
-CAPTION "Ventana 1"
-FONT 8,"MS Sans Serif"
-STYLE 0x10CF0800
+#define main 1
+#define IDC_STC2 1000
+#define id_input 1001
+#define IDC_STC1 1002
+#define id_btn_in_bi 1003
+#define id_btn_in_oc 1004
+#define id_btn_in_de 1005
+#define id_btn_in_he 1006
+#define IDC_STC3 1007
+#define id_bnt_out_bi 1008
+#define id_btn_out_oc 1009
+#define id_btn_out_de 1010
+#define id_btn_out_he 1011
+#define id_bnt_convert 1012
+#define IDC_STC4 1013
+#define IDC_GRP1 1014
+#define IDC_STC5 1015
+#define IDC_STC6 1016
+#define IDC_STC7 1017
+#define IDC_STC8 1018
+#define id_out_bi 1019
+#define id_out_oc 1020
+#define id_out_de 1021
+#define id_out_he 1022
+main DIALOGEX 0,0,231,198
+CAPTION "CONVERSOR"
+FONT 15,"MS Sans Serif",400,0
+STYLE 0x10CA0800
 EXSTYLE 0x00000000
 BEGIN
-  PUSHBUTTON "Salir",IDC_BTN1,130,84,50,13,NOT 0x00820000|0x50010000,0x00000000
+  CONTROL "Introduzca un número:",IDC_STC2,"Static",0x50000200,26,25,83,12,0x00000000
+  CONTROL "",id_input,"Edit",0x50012000,123,25,83,12,0x00000201
+  CONTROL "Seleccione su base:",IDC_STC1,"Static",0x50000200,26,44,83,12,0x00000000
+  CONTROL "binario",id_btn_in_bi,"Button",0x50014009,26,57,43,12,0x00000000
+  CONTROL "octal",id_btn_in_oc,"Button",0x50010009,72,57,33,12,0x00000000
+  CONTROL "decimal",id_btn_in_de,"Button",0x50010009,113,57,43,12,0x00000000
+  CONTROL "hexadecimal",id_btn_in_he,"Button",0x50010009,162,57,43,12,0x00000000
+  CONTROL "Seleccione la base destino:",IDC_STC3,"Static",0x50000200,26,76,83,12,0x00000000
+  CONTROL "binario",id_bnt_out_bi,"Button",0x50010003,26,89,43,12,0x00000000
+  CONTROL "octal",id_btn_out_oc,"Button",0x50010003,72,89,33,12,0x00000000
+  CONTROL "decimal",id_btn_out_de,"Button",0x50010003,113,89,43,12,0x00000000
+  CONTROL "hexadecimal",id_btn_out_he,"Button",0x50010003,162,89,43,12,0x00000000
+  CONTROL "CONVERTIR",id_bnt_convert,"Button",0x50010000,89,108,53,15,0x00000000
+  CONTROL "Conversor de Bases",IDC_STC4,"Static",0x50000201,82,6,66,9,0x00000000
+  CONTROL "Conversion",IDC_GRP1,"Button",0x50000007,25,131,180,57,0x00000000
+  CONTROL "Binario:",IDC_STC5,"Static",0x50000200,40,147,40,8,0x00000000
+  CONTROL "Octal:",IDC_STC6,"Static",0x50000200,40,155,40,8,0x00000000
+  CONTROL "Decimal:",IDC_STC7,"Static",0x50000200,40,163,40,8,0x00000000
+  CONTROL "Hexadecimal:",IDC_STC8,"Static",0x50000200,40,171,40,8,0x00000000
+  CONTROL "",id_out_bi,"Static",0x50000200,93,147,100,8,0x00000000
+  CONTROL "",id_out_oc,"Static",0x50000200,93,155,100,8,0x00000000
+  CONTROL "",id_out_de,"Static",0x50000200,93,163,100,8,0x00000000
+  CONTROL "",id_out_he,"Static",0x50000200,93,171,100,8,0x00000000
 END

@@ -49,7 +49,7 @@ Group=Added files,Assembly,Resources,Misc,Modules
 3=3
 4=3
 [AutoLoad]
-AutoLoad=
+AutoLoad=1,4
 [VersionControl]
 Settings=1246
 Milestones=129
@@ -93,9 +93,9 @@ ProductVer4Range=0
 6=00FFFFFF
 7=00FFFFFF
 [PTimer]
-PTimer=22578
+PTimer=9229563
 [GroupExpand]
-GroupExpand=0,0,0,0,0,0
+GroupExpand=0,1,0,0,1,0
 [BookMark]
 0=
 1=
@@ -109,3 +109,8 @@ GroupExpand=0,0,0,0,0,0
 9=
 [BreakPoint]
 0=
+[Size]
+4=0,0,0,0
+1=0,0,0,0,0
+[Collapse]
+1=
