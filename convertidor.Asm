@@ -71,13 +71,14 @@ macro convert base {
 		pop edx ecx ebx eax
 }
 
-macro convert2K var,x {
+macro convert2K var,i,x {
 	local ciclo,ciclo_sig,ciclo_fin
 	push ebx ecx edx
 
 	mov bl,0
 	mov cl,20h
-	sub cl,x
+	sub cl,i
+	add cl,x
 	lea esi,[var]
 
 	ciclo:
@@ -99,7 +100,7 @@ macro convert2K var,x {
 			add dl,30h
 			mov [esi],dl
 
-		add bl,x
+		add bl,i
 		inc esi
 		jmp ciclo
 
@@ -153,8 +154,6 @@ jINITDIALOG:
 	mov [pWnd],eax
 
 	deshabilitar id_btn_convert
-	deshabilitar id_btn_in_oc
-	deshabilitar id_btn_out_oc
 
 	mov eax,1
 	jmp finish
@@ -199,13 +198,13 @@ convertir_sig:
 	listCheck id_btn_out_bi,out_bi_sig
 
 	out_bi:
-		convert2K binario,1
+		convert2K binario,1,0
 		invoke SetDlgItemText,[pWnd],id_out_bi,binario
 	out_bi_sig:
 		listCheck id_btn_out_oc,out_oc_sig
 
 	out_oc:
-		convert2K octal,3
+		convert2K octal,3,1
 		invoke SetDlgItemText,[pWnd],id_out_oc,octal
 	out_oc_sig:
 		listCheck id_btn_out_de,out_de_sig
@@ -217,7 +216,7 @@ convertir_sig:
 		listCheck id_btn_out_he,out_he_sig
 
 	out_he:
-		convert2K hexadecimal,4
+		convert2K hexadecimal,4,0
 		invoke SetDlgItemText,[pWnd],id_out_he,hexadecimal
 	out_he_sig:
 		jmp jCOMMAND_finish
